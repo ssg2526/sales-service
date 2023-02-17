@@ -20,4 +20,9 @@ public class KotServiceImpl implements KotService{
         ContextProps cp = DBContext.getCurrentDBContext();
         return kotRepository.findByOrgIdAndBranchIdAndOrderId(cp.getOrgId(), cp.getBranchId(), orderId);
     }
+
+    @Override
+    public Kot addKot(Kot kot) {
+        return kotRepository.save(kot);
+    }
 }

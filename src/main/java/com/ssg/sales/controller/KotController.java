@@ -25,4 +25,10 @@ public class KotController {
 
         return new ResponseEntity<List<Kot>>(kotList, HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/addKot")
+    public ResponseEntity<Kot> generateKot(@RequestBody Kot kot,
+                                           @RequestHeader Map<String, Object> headers) {
+        return new ResponseEntity<Kot>(kotService.addKot(kot), HttpStatus.CREATED);
+    }
 }

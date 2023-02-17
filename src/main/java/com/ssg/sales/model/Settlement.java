@@ -1,8 +1,11 @@
 package com.ssg.sales.model;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -18,4 +21,14 @@ public class Settlement {
     private Double totalAmount;
     @OneToMany(mappedBy = "settlement", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<SettlementDetail> settlementDetails;
+    @Column(name = "org_id")
+    private Integer orgId;
+    @Column(name = "branch_id")
+    private Integer branchId;
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private Timestamp createdAt;
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private Timestamp updatedAt;
 }
