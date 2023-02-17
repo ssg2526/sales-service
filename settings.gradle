@@ -1,0 +1,4 @@
+rootProject.name = 'sales-service'
+include 'inventory-service'
+include 'auth-service'
+
