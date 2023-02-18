@@ -20,4 +20,6 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
 
     @Query("select po from Invoice po where po.invoiceNo = :invoice")
     public Invoice getInvoiceByInvoiceNo(@Param("invoice") String invoice);
+
+    public Invoice getByOrderId(Integer orderId);
 }

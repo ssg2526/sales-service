@@ -14,11 +14,12 @@ import java.util.List;
 @Table(name = "kot")
 @Data
 public class Kot {
+    private static final long serialVersionUID = 42L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "order_id")
     private Integer orderId;

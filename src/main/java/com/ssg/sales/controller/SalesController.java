@@ -85,4 +85,13 @@ public class SalesController {
             System.out.println(po.toString());
         return new ResponseEntity<>(po, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/getInvoiceByOrder", method = RequestMethod.GET)
+    public ResponseEntity<Invoice> getOrderByInvoice(@RequestParam("orderId") Integer orderId,
+                                                     @RequestHeader Map<String, Object> headers){
+        Invoice po = invoiceService.getInvoiceByOrderId(orderId);
+        if(po != null)
+            System.out.println(po.toString());
+        return new ResponseEntity<>(po, HttpStatus.OK);
+    }
 }

@@ -28,10 +28,10 @@ public class Invoice {
     private Integer orderId;
 
     @Column(name = "discount_percent")
-    private Float discountPer;
+    private Double discountPer;
 
     @Column(name = "bill_amount")
-    private Float billAmount;
+    private Double billAmount;
 
     @Column(name = "customer_contact")
     private Integer customer_contact;

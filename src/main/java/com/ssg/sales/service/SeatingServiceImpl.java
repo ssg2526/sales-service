@@ -20,4 +20,11 @@ public class SeatingServiceImpl implements SeatingService{
         ContextProps cp = DBContext.getCurrentDBContext();
         return seatingRepository.findByOrgIdAndBranchIdOrderByTableNo(cp.getOrgId(), cp.getBranchId());
     }
+
+    @Override
+    public Seating updateTable(Seating seating) {
+        return seatingRepository.save(seating);
+    }
+
+
 }

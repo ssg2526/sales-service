@@ -12,7 +12,8 @@ import java.util.List;
 public interface InvoiceService {
     public Invoice addInvoice(Invoice order);
     public Invoice updateInvoice(Invoice order);
-    public Invoice getInvoiceDetailsById(Integer orderId);
+    public Invoice getInvoiceDetailsById(Integer id);
     public List<Invoice> getInvoicesByDates(LocalDate from, LocalDate to, int page, int size);
     public Invoice getInvoiceByInvoiceNo(String invoice);
+    public Invoice getInvoiceByOrderId(Integer orderId);
 }

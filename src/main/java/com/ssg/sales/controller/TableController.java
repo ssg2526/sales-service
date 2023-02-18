@@ -24,4 +24,11 @@ public class TableController {
 
         return new ResponseEntity<List<Seating>>(seatingList, HttpStatus.OK);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/updateTable")
+    public ResponseEntity<Seating> updateSeating(@RequestBody Seating seating,
+                                                 @RequestHeader Map<String, Object> headers) {
+        Seating seating1 = seatingService.updateTable(seating);
+        return new ResponseEntity<>(seating1, HttpStatus.CREATED);
+    }
 }

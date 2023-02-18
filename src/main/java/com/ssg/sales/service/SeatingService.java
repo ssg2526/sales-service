@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface SeatingService {
     public List<Seating> getAllTables();
+    public Seating updateTable(Seating seating);
 }

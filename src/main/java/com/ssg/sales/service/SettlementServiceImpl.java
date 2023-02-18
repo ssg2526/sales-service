@@ -13,6 +13,9 @@ public class SettlementServiceImpl implements SettlementService {
 
     @Override
     public Settlement addSettlement(Settlement settlement) {
+        settlement.getSettlementDetails().forEach(settlementDetail -> {
+            settlementDetail.setSettlement(settlement);
+        });
         return settlementRepository.save(settlement);
     }
 }

@@ -23,6 +23,9 @@ public class KotServiceImpl implements KotService{
 
     @Override
     public Kot addKot(Kot kot) {
+        kot.getKotItems().forEach((kotItem -> {
+            kotItem.setKot(kot);
+        }));
         return kotRepository.save(kot);
     }
 }

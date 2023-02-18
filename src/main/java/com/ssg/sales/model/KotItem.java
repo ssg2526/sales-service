@@ -5,6 +5,8 @@
 
 package com.ssg.sales.model;
 
+import lombok.EqualsAndHashCode;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,13 +17,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name = "kot_item")
 @Entity
+@Table(name = "kot_item")
+@EqualsAndHashCode
 public class KotItem {
+
+    private static final long serialVersionUID = 42L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Column(name = "item_id")
     private Integer itemId;
     @Column(name = "rate")
@@ -41,11 +47,11 @@ public class KotItem {
     public KotItem() {
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -97,7 +103,7 @@ public class KotItem {
         this.sellingPrice = sellingPrice;
     }
 
-    public Integer getKot() {
+    public Long getKot() {
         return this.kot.getId();
     }
 

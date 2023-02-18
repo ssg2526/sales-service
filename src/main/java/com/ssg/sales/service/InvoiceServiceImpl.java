@@ -87,11 +87,11 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public Invoice getInvoiceDetailsById(Integer orderId) {
+    public Invoice getInvoiceDetailsById(Integer id) {
         Invoice po = null;
         try{
             log.info("reached service layer");
-            po = invoiceRepository.getById(orderId);
+            po = invoiceRepository.getById(id);
             log.info("closing service layer");
         } catch (Exception e){
             log.error(e.getMessage());
@@ -110,5 +110,10 @@ public class InvoiceServiceImpl implements InvoiceService {
     @Override
     public Invoice getInvoiceByInvoiceNo(String invoice) {
         return invoiceRepository.getInvoiceByInvoiceNo(invoice);
+    }
+
+    @Override
+    public Invoice getInvoiceByOrderId(Integer orderId) {
+        return invoiceRepository.getByOrderId(orderId);
     }
 }

@@ -30,9 +30,6 @@ public class InvoiceItem {
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
-//    @Column(name = "tenant_id", nullable = false)
-//    private Integer tenantId;
-
     public Integer getId() {
         return id;
     }

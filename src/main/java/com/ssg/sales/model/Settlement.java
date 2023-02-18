@@ -1,5 +1,6 @@
 package com.ssg.sales.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -9,12 +10,15 @@ import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "settlement")
 @Data
 public class Settlement {
+    private static final long serialVersionUID = 42L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "id")
+    private Long id;
     @Column(name = "order_id")
     private Integer orderId;
     @Column(name = "total_amount")
