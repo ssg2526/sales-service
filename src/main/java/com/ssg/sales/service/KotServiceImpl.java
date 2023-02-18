@@ -28,4 +28,14 @@ public class KotServiceImpl implements KotService{
         }));
         return kotRepository.save(kot);
     }
+
+    @Override
+    public Kot editKot(Kot kot) {
+        kot.getKotItems().forEach((kotItem -> {
+            kotItem.setKot(kot);
+        }));
+        return kotRepository.save(kot);
+    }
+
+
 }

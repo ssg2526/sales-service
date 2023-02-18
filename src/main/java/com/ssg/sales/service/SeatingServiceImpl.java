@@ -22,6 +22,11 @@ public class SeatingServiceImpl implements SeatingService{
     }
 
     @Override
+    public Seating getTableById(int id) {
+        return seatingRepository.getById(id);
+    }
+
+    @Override
     public Seating updateTable(Seating seating) {
         return seatingRepository.save(seating);
     }

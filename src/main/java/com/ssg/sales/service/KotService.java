@@ -7,4 +7,5 @@ import java.util.List;
 public interface KotService {
     public List<Kot> getKotListByOrder(int orderId);
     public Kot addKot(Kot kot);
+    public Kot editKot(Kot kot);
 }
