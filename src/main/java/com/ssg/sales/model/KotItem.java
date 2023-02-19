@@ -112,6 +112,13 @@ public class KotItem {
     }
 
     public String toString() {
-        return "KotItem{id=" + this.id + ", itemId=" + this.itemId + ", rate=" + this.rate + ", uom='" + this.uom + "', qty=" + this.qty + ", discountPer=" + this.discountPer + ", sellingPrice=" + this.sellingPrice + "}";
+        return "KotItem{" +
+                "id=" + this.id +
+                ", itemId=" + this.itemId +
+                ", rate=" + this.rate +
+                ", uom='" + this.uom + "'" +
+                ", qty=" + this.qty +
+                ", discountPer=" + this.discountPer +
+                ", sellingPrice=" + this.sellingPrice + "}";
     }
 }

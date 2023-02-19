@@ -13,7 +13,7 @@ public class InvoiceItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Column(name = "item_id")
     private Integer itemId;
     @Column(name = "rate")
@@ -30,11 +30,11 @@ public class InvoiceItem {
     @JoinColumn(name = "invoice_id")
     private Invoice invoice;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -86,7 +86,7 @@ public class InvoiceItem {
         this.sellingPrice = sellingPrice;
     }
 
-    public Integer getInvoice() {
+    public Long getInvoice() {
         return invoice.getId();
     }
 

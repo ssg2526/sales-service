@@ -49,7 +49,7 @@ public class SalesController {
 
     @RequestMapping(value = "/updateSales/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Invoice> updateInvoice(@RequestBody Invoice order,
-                                              @PathVariable("id") Integer orderId,
+                                              @PathVariable("id") Long orderId,
                                               @RequestHeader Map<String, Object> headers){
         order.setId(orderId);
         Invoice invoice = invoiceService.updateInvoice(order);
@@ -57,7 +57,7 @@ public class SalesController {
     }
 
     @RequestMapping(value = "/getSales/{id}", method = RequestMethod.GET)
-    public ResponseEntity<Invoice> getInvoiceDetailsById(@PathVariable("id") int id, @RequestHeader Map<String, Object> headers){
+    public ResponseEntity<Invoice> getInvoiceDetailsById(@PathVariable("id") Long id, @RequestHeader Map<String, Object> headers){
         Invoice po = invoiceService.getInvoiceDetailsById(id);
         return new ResponseEntity<>(po, HttpStatus.OK);
     }

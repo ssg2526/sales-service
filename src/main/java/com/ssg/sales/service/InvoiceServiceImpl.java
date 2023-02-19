@@ -87,7 +87,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public Invoice getInvoiceDetailsById(Integer id) {
+    public Invoice getInvoiceDetailsById(Long id) {
         Invoice po = null;
         try{
             log.info("reached service layer");

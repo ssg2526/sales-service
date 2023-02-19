@@ -19,13 +19,13 @@ public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "invoice_no")
     private String invoiceNo;
 
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
 
     @Column(name = "discount_percent")
     private Double discountPer;
@@ -34,7 +34,7 @@ public class Invoice {
     private Double billAmount;
 
     @Column(name = "customer_contact")
-    private Integer customer_contact;
+    private String customerContact;
 
     @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<InvoiceItem> invoiceItems;

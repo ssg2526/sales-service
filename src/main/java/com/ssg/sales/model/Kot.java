@@ -22,7 +22,7 @@ public class Kot {
     private Long id;
 
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
 
     @OneToMany(mappedBy = "kot", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<KotItem> kotItems;

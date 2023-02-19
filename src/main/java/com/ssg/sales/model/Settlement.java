@@ -20,7 +20,7 @@ public class Settlement {
     @Column(name = "id")
     private Long id;
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
     @Column(name = "total_amount")
     private Double totalAmount;
     @OneToMany(mappedBy = "settlement", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)

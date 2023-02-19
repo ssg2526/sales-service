@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface KotRepository extends JpaRepository<Kot, Long> {
-    public List<Kot> findByOrgIdAndBranchIdAndOrderId(Integer orgId, Integer branchId, Integer orderId);
+    public List<Kot> findByOrgIdAndBranchIdAndOrderId(Integer orgId, Integer branchId, Long orderId);
 }

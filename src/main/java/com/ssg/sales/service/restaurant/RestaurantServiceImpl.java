@@ -84,7 +84,7 @@ public class RestaurantServiceImpl implements RestaurantService{
 
     @Override
     public Seating updateKot(Kot kot) {
-        int orderId = kot.getOrderId();
+        long orderId = kot.getOrderId();
         Kot editedKot = kotService.editKot(kot);
 
         return null;

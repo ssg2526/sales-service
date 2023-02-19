@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
+public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
     @Query(value = "select po from Invoice po where cast(po.createdAt as date) >= cast(:from as date) " +
             "and cast(po.createdAt as date) <= cast(:to as date) order by po.createdAt",
             countQuery = "select count(po) from Invoice po where cast(po.createdAt as date) >= cast(:from as date) " +

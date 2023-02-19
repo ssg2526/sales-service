@@ -19,7 +19,7 @@ public class KotController {
     KotService kotService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getKotByOrder")
-    public ResponseEntity<List<Kot>> getKotByOrder(@RequestParam("orderId") Integer orderId,
+    public ResponseEntity<List<Kot>> getKotByOrder(@RequestParam("orderId") Long orderId,
                                                    @RequestHeader Map<String, Object> headers){
         List<Kot> kotList = kotService.getKotListByOrder(orderId);
 

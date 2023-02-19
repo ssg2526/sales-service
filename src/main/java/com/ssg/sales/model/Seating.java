@@ -24,7 +24,7 @@ public class Seating {
     @Column(name = "status")
     private Integer status;
     @Column(name = "order_id")
-    private Integer orderId;
+    private Long orderId;
     @Column(name = "order_value")
     private Double orderValue;
     @Column(name = "org_id")
