@@ -18,7 +18,7 @@ public class KotServiceImpl implements KotService{
     @Override
     public List<Kot> getKotListByOrder(long orderId) {
         ContextProps cp = DBContext.getCurrentDBContext();
-        return kotRepository.findByOrgIdAndBranchIdAndOrderId(cp.getOrgId(), cp.getBranchId(), orderId);
+        return kotRepository.findByOrgIdAndBranchIdAndOrderIdOrderByCreatedAtDesc(cp.getOrgId(), cp.getBranchId(), orderId);
     }
 
     @Override
