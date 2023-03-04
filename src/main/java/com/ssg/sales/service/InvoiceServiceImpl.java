@@ -8,6 +8,7 @@ import com.ssg.sales.repository.LastInvoiceRepository;
 import com.ssg.sales.repository.InvoiceRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -102,7 +103,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getInvoicesByDates(LocalDate from, LocalDate to, int page, int pageSize) {
+    public Page<Invoice> getInvoicesByDates(LocalDate from, LocalDate to, int page, int pageSize) {
         Pageable paging = PageRequest.of(page, pageSize);
         return invoiceRepository.getInvoicesByDates(from, to, paging);
     }

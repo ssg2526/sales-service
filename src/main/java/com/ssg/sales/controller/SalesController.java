@@ -9,6 +9,7 @@ import com.ssg.sales.service.InvoiceService;
 import com.ssg.sales.service.ItemService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -63,7 +64,7 @@ public class SalesController {
     }
 
     @RequestMapping(value = "/getInvoicesByDates", method = RequestMethod.GET)
-    public ResponseEntity<List<Invoice>> getOrdersByDate(@RequestParam("from")
+    public ResponseEntity<Page<Invoice>> getOrdersByDate(@RequestParam("from")
                                                                @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate from,
                                                                @RequestParam("to")
                                                                @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate to,
@@ -71,7 +72,7 @@ public class SalesController {
                                                                @RequestParam(value = "size", required = false, defaultValue = "10") int size,
                                                                @RequestHeader Map<String, Object> headers){
         System.out.println("from: "+ from+ " to: "+to+ " headers"+ headers);
-        List<Invoice> poList = invoiceService.getInvoicesByDates(from, to, page, size);
+        Page<Invoice> poList = invoiceService.getInvoicesByDates(from, to, page, size);
         System.out.println(poList);
         return new ResponseEntity<>(poList, HttpStatus.OK);
 

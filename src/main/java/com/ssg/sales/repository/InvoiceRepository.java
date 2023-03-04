@@ -1,6 +1,7 @@
 package com.ssg.sales.repository;
 
 import com.ssg.sales.model.Invoice;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,9 +15,16 @@ public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
             "and cast(po.createdAt as date) <= cast(:to as date) order by po.createdAt",
             countQuery = "select count(po) from Invoice po where cast(po.createdAt as date) >= cast(:from as date) " +
                     "and cast(po.createdAt as date) <= cast(:to as date)")
-    public List<Invoice> getInvoicesByDates(@Param("from") LocalDate from,
-                                                @Param("to") LocalDate to,
-                                                Pageable pageable);
+    public Page<Invoice> getInvoicesByDates(@Param("from") LocalDate from,
+                                            @Param("to") LocalDate to,
+                                            Pageable pageable);
+
+    @Query(value = "select count(po) from Invoice po where cast(po.createdAt as date) >= cast(:from as date) " +
+            "and cast(po.createdAt as date) <= cast(:to as date) order by po.createdAt",
+            countQuery = "select count(po) from Invoice po where cast(po.createdAt as date) >= cast(:from as date) " +
+                    "and cast(po.createdAt as date) <= cast(:to as date)")
+    long getInvoiceByDatesCount(@Param("from") LocalDate from,
+                                @Param("to") LocalDate to);
 
     @Query("select po from Invoice po where po.invoiceNo = :invoice")
     public Invoice getInvoiceByInvoiceNo(@Param("invoice") String invoice);
