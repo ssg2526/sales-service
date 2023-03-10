@@ -8,6 +8,7 @@ import com.ssg.sales.repository.LastInvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -24,6 +25,16 @@ public class ItemServiceImpl implements ItemService {
         }
         item.setItemCode(maxItemCode+1);
         itemRepository.save(item);
+    }
+
+    @Override
+    @Transactional
+    public void bulkCreateItem(List<Item> itemList) {
+//        itemRepository.saveAll(itemList);
+        itemList.forEach(item -> {
+            createItem(item);
+        });
+
     }
 
     @Override

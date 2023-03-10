@@ -8,6 +8,7 @@ import java.util.List;
 @Service
 public interface ItemService {
     public void createItem(Item item);
+    public void bulkCreateItem(List<Item> itemList);
     public Item fetchItemById(Integer itemId);
     public List<Item> fetchItemByCode(Integer itemCode);
     public List<Item> fetchItemByCategory(Integer categoryId);

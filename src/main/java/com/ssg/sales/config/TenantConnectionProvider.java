@@ -33,7 +33,6 @@ public class TenantConnectionProvider implements MultiTenantConnectionProvider {
         final Connection connection = getAnyConnection();
         if(!tenantIdentifier.equals("public")){
 //            connection.createStatement().execute(String.format("USE %s;", tenantIdentifier));
-            log.info("setting schema: "+tenantIdentifier);
             connection.setSchema(tenantIdentifier);
 //            connection.setSchema("db_"+tenantIdentifier);
         } else{

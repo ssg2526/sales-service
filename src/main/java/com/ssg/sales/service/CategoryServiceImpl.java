@@ -17,7 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> getCategories() {
         ContextProps cp = DBContext.getCurrentDBContext();
-        return categoryRepository.findByOrgIdAndBranchId(cp.getOrgId(), cp.getBranchId());
+        return categoryRepository.findByOrgIdAndBranchIdOrderById(cp.getOrgId(), cp.getBranchId());
     }
 
     @Override

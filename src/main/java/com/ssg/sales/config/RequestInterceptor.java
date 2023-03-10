@@ -25,7 +25,6 @@ public class RequestInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler){
-        log.info("setting tenant");
 //        System.out.println("USER: "+request.getHeader("userId"));
 //        Integer userId = Integer.valueOf(request.getHeader("userId"));
 //        log.info("user id :"+userId);
@@ -56,7 +55,6 @@ public class RequestInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, @Nullable ModelAndView modelAndView) throws Exception {
-        log.info("cleaning tenant");
         DBContext.clear();
     }
 

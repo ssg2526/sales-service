@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
-    public List<Category> findByOrgIdAndBranchId(int orgId, int branchId);
+    public List<Category> findByOrgIdAndBranchIdOrderById(int orgId, int branchId);
 }

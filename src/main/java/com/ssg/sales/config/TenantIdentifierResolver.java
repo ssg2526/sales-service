@@ -17,11 +17,9 @@ public class TenantIdentifierResolver implements CurrentTenantIdentifierResolver
     @Override
     public String resolveCurrentTenantIdentifier() {
         if(DBContext.getCurrentDBContext() != null){
-            log.info("tenant identified");
 //            TenantContext
             ContextProps contextProp =  DBContext.getCurrentDBContext();
 
-            log.info("tenant: "+contextProp.getSchemaName());
             return contextProp.getSchemaName();
         }
         log.info("no tenant identified, going with default");

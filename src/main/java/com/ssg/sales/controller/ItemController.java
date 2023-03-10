@@ -25,6 +25,12 @@ public class ItemController {
         return new ResponseEntity<>("Success", HttpStatus.CREATED);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/addBulkItem")
+    public ResponseEntity<String> bulkCreateItem(@RequestBody List<Item> itemList, @RequestHeader Map<String, Object> headers) {
+        itemService.bulkCreateItem(itemList);
+        return new ResponseEntity<>("Success", HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/editItem")
     public ResponseEntity<String> updateItem(@RequestBody Item item, @RequestHeader Map<String, Object> headers) {
         itemService.updateItem(item);
