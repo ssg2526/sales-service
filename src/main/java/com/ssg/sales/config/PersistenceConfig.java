@@ -33,8 +33,8 @@ public class PersistenceConfig {
     JpaVendorAdapter jpaVendorAdapter;
     @Value("${spring.datasource.driver-class-name}")
     String driverClassName = "";
-//    @Value("${spring.datasource.url}")
-    String url = "jdbc:postgresql://localhost:5432/erp_1?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false";
+    @Value("${spring.datasource.url}")
+    String url;/* = "jdbc:postgresql://localhost:5432/erp_1?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false";*/
     @Value("${spring.datasource.username}")
     String userName = "";
     @Value("${spring.datasource.password}")
