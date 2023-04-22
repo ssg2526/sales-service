@@ -8,6 +8,7 @@ import com.ssg.sales.model.analytics.SalesCountAgg;
 import com.ssg.sales.repository.SettlementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static java.time.temporal.TemporalAdjusters.firstDayOfYear;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,18 +23,18 @@ public class AnalyticsServiceImpl implements AnalyticsService{
     @Override
     public List<SalesAgg> getDailySalesAggregation(SalesAggType salesAggType) {
         switch (salesAggType){
-            case DAILY -> {
+            case DAILY: {
                 LocalDate startDate = LocalDate.now().minusDays(15);
                 return settlementRepository.getDailySalesAgg(startDate);
             }
-            case MONTHLY -> {
-
+            case MONTHLY: {
+                LocalDate startDate = LocalDate.now().with(firstDayOfYear());
+                return settlementRepository.getMonthlySalesAgg(startDate);
+            }
+            case YEARLY: {
                 break;
             }
-            case YEARLY -> {
-                break;
-            }
-            default -> {
+            default: {
 
             }
         }
@@ -44,18 +45,18 @@ public class AnalyticsServiceImpl implements AnalyticsService{
     @Override
     public List<SalesCountAgg> getDailySalesCountAggregation(SalesAggType salesAggType) {
         switch (salesAggType){
-            case DAILY -> {
+            case DAILY: {
                 LocalDate startDate = LocalDate.now().minusDays(15);
                 return settlementRepository.getDailySalesCountAgg(startDate);
             }
-            case MONTHLY -> {
-
+            case MONTHLY: {
+                LocalDate startDate = LocalDate.now().with(firstDayOfYear());
+                return settlementRepository.getMonthlySalesCountAgg(startDate);
+            }
+            case YEARLY: {
                 break;
             }
-            case YEARLY -> {
-                break;
-            }
-            default -> {
+            default: {
 
             }
         }
@@ -66,18 +67,18 @@ public class AnalyticsServiceImpl implements AnalyticsService{
     @Override
     public List<PaymentAgg> getDailyPaymentAggregation(SalesAggType aggType) {
         switch (aggType){
-            case DAILY -> {
+            case DAILY: {
                 LocalDate startDate = LocalDate.now().minusDays(15);
                 return settlementRepository.getDailyPaymentModeAgg(startDate);
             }
-            case MONTHLY -> {
-
+            case MONTHLY: {
+                LocalDate startDate = LocalDate.now().with(firstDayOfYear());
+                return settlementRepository.getMonthlyPaymentModeAgg(startDate);
+            }
+            case YEARLY: {
                 break;
             }
-            case YEARLY -> {
-                break;
-            }
-            default -> {
+            default: {
 
             }
         }

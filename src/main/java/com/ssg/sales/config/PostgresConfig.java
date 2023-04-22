@@ -32,8 +32,10 @@ public class PostgresConfig {
         hikariConfig.setDriverClassName(driverClass);
         hikariConfig.setUsername(username);
         hikariConfig.setPassword(password);
-        hikariConfig.setMaximumPoolSize(20);
-        hikariConfig.setMinimumIdle(10);
+        hikariConfig.setMaximumPoolSize(5);
+        hikariConfig.setMinimumIdle(5);
+        hikariConfig.setIdleTimeout(10000);
+        hikariConfig.setMaxLifetime(300000);
         hikariConfig.setPoolName("POSTGRES_CONNECTION_POOL");
         log.info(jdbcUrl);
         log.info(username);

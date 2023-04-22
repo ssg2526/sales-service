@@ -27,6 +27,8 @@ public class Item {
     private String uom;
     @Column(name = "rate")
     private Float rate;
+    @Column(name = "online_rate")
+    private Float onlineRate;
     @Column(name = "inventory_id", nullable = false)
     private Integer inventoryId;
     @Column(name = "org_id", nullable = false)

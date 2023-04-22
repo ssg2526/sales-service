@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class MonthlySales extends SalesAgg{
 
-    int month;
+    String month;
 
-    public MonthlySales(Double sales, int month){
+    public MonthlySales(Double sales, String month){
         super(sales);
         this.month = month;
     }
