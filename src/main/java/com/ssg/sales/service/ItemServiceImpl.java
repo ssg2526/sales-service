@@ -77,7 +77,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getAllItems() {
         ContextProps contextProps = DBContext.getCurrentDBContext();
-        List<Item> items = itemRepository.findByOrgIdAndInventoryId(contextProps.getOrgId(), contextProps.getInvId());
+        List<Item> items = itemRepository.findByOrgIdAndInventoryIdOrderByName(contextProps.getOrgId(), contextProps.getInvId());
         return items;
     }
 }
